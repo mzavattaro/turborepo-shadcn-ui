@@ -1,11 +1,12 @@
 import { Button } from "@repo/ui/components/ui/button";
+import { type NextPage } from "next";
 
-export default function Page() {
-  console.log("Hello world");
+const Page: NextPage = () => {
   return (
     <main>
-      <button>Click me</button>
       <Button>Click me</Button>
     </main>
   );
-}
+};
+
+export default Page;
