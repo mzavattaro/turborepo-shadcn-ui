@@ -6,9 +6,16 @@ const project = resolve(process.cwd(), "tsconfig.json");
 module.exports = {
   extends: [
     "eslint:recommended",
+    require.resolve("@vercel/style-guide/eslint/node"),
+    require.resolve("@vercel/style-guide/eslint/typescript"),
+    require.resolve("@vercel/style-guide/eslint/browser"),
+    require.resolve("@vercel/style-guide/eslint/react"),
     require.resolve("@vercel/style-guide/eslint/next"),
-    "eslint-config-turbo",
+    require.resolve("eslint-config-turbo"),
   ],
+  parserOptions: {
+    project,
+  },
   globals: {
     React: true,
     JSX: true,
@@ -29,6 +36,7 @@ module.exports = {
     // Ignore dotfiles
     ".*.js",
     "node_modules/",
+    "dist/",
   ],
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
 };
